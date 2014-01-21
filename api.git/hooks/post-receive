@@ -12,5 +12,10 @@ cd ${APP_PATH}
 /usr/local/rvm/gems/ruby-2.0.0-p353@global/bin/bundle install --deployment
 echo "==========  BUNDLED  =========="
 
+echo "==========  RESTARTING APP  =========="
+mkdir -p tmp
+touch tmp/restart.txt
+echo "==========  APP RESTARTED  =========="
+
 #/usr/local/rvm/gems/ruby-2.0.0-p353/bin/rake db:migrate
 #echo "MIGRATED"
