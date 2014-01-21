@@ -1,10 +1,14 @@
 #!/bin/bash
+
+APP_PATH=/var/www/foofoberry/api
+GIT_DIR=/var/repo/foofoberry/api.git
+
 [[ -s "/usr/local/rvm/bin/rvm" ]] && . "/usr/local/rvm/bin/rvm"
 
-git --work-tree=/var/www/foofoberry/api --git-dir=/var/repo/foofoberry/api.git checkout -f
+git --work-tree=${APP_PATH} --git-dir=${GIT_DIR} checkout -f
 echo "==========  CODE DEPLOYED =========="
 
-cd /var/www/foofoberry/api
+cd ${APP_PATH}
 /usr/local/rvm/gems/ruby-2.0.0-p353@global/bin/bundle install --deployment
 echo "==========  BUNDLED  =========="
 
