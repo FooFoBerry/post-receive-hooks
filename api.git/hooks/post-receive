@@ -1,2 +1,12 @@
-#!/bin/sh
+#!/bin/bash
+[[ -s "/usr/local/rvm/bin/rvm" ]] && . "/usr/local/rvm/bin/rvm"
+
 git --work-tree=/var/www/foofoberry/api --git-dir=/var/repo/foofoberry/api.git checkout -f
+echo "==========  CODE DEPLOYED =========="
+
+cd /var/www/foofoberry/api
+/usr/local/rvm/gems/ruby-2.0.0-p353@global/bin/bundle install --deployment
+echo "==========  BUNDLED  =========="
+
+#/usr/local/rvm/gems/ruby-2.0.0-p353/bin/rake db:migrate
+#echo "MIGRATED"
